@@ -11,9 +11,28 @@ import tkinter as tk
 
 root=tk.Tk()
 
-root.config(width=400,height=600)
+#root.pack(fill=tk.BOTH)
 loginFrame=tk.Frame(root)
-loginFrame.grid()
+loginFrame.config(width=340,height=600)
+loginFrame.pack(fill=tk.BOTH,expand=1)
+#loginFrame=tk.Frame(root)
+
+nameLabel=tk.Label(loginFrame,text="name")
+passLabel=tk.Label(loginFrame,text="password")
+loginButton=tk.Button(loginFrame,text="login")
+nameEntry=tk.Entry(loginFrame)
+passEntry=tk.Entry(loginFrame,show='*')
+
+
+#start to pack them
+nameLabel.grid(row=0,column=0)
+nameEntry.grid(row=0,column=1)
+passLabel.grid(row=1)
+passEntry.grid(row=1,column=1)
+loginButton.grid(row=2,columnspan=2,sticky="ew")
+
+
+loginFrame.grid_propagate(False)
 
 root.mainloop()
 
