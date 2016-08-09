@@ -1,20 +1,24 @@
+
 #!/bin/python3
 
-#problem:	say if we want to create a login window,
-#we want to make sure that the size of the window is
-#400* 600,how to make this?
+#PROBlEM:
+#   now we have a frame inside a window,to make it clearer,we want to add
+#border lines that containing the frame.How?
 
-#solution:	use the width and height keyword argument to set
-#that for you.
+
+#SOLUTION:
 
 import tkinter as tk
 
 root=tk.Tk()
+root.config(width=340,height=520)
 
+#root.pack_propagate(False)
 #root.pack(fill=tk.BOTH)
 loginFrame=tk.Frame(root)
-loginFrame.config(width=340,height=600)
-loginFrame.pack(fill=tk.BOTH,expand=1)
+#loginFrame.config(width=340,height=600,borderwidth=5)
+#loginFrame.pack(fill=tk.BOTH,expand=1)
+loginFrame.place(anchor="c",relx=0.5,rely=0.2)
 #loginFrame=tk.Frame(root)
 
 nameLabel=tk.Label(loginFrame,text="name")
@@ -32,7 +36,7 @@ passEntry.grid(row=1,column=1)
 loginButton.grid(row=2,columnspan=2,sticky="ew")
 
 #this turns off the ultilization
-loginFrame.grid_propagate(False)
+#loginFrame.grid_propagate(False)
 
 root.mainloop()
 
